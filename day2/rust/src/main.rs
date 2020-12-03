@@ -69,6 +69,7 @@ fn parse(i: &str) -> IResult<&str, bool> {
     let st = st.as_bytes();
     let chr = chr as u8;
 
-    return Ok((i, (st[min] != chr && st[max] == chr) || (st[min] == chr && st[max] != chr) ));
+    //return Ok((i, (st[min] != chr && st[max] == chr) || (st[min] == chr && st[max] != chr) ));
+    return Ok((i, (st[min] == chr) ^ (st[max] == chr)));
 }
 
